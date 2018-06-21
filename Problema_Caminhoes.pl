@@ -59,20 +59,30 @@ alldifferent([]).
 alldifferent([H|T]):- not(member(H,T)),
                       alldifferent(T).
  
-start:- caminhoes([C1, C2, C3, C4,C5]),
-         writeln("\n CAMINHAO 1: ":C1),
-         writeln("\n CAMINHAO 2: ":C2),
-         writeln("\n CAMINHAO 3: ":C3),
-         writeln("\n CAMINHAO 4: ":C4),
-         writeln("\n CAMINHAO 5: ":C5).
- 
-caminhoes([(COR1, MOTORISTA1, DESTINO1, CARGA1, PLACA1, KM1),
+start:-  
+	 statistics(cputime, T0),
+	 writeln("----------------------Welcome----------------------"),
+	 writeln("Powered by: Vinicius S. Chab\n\n"),
+	 caminhoes([C1, C2, C3, C4,C5]),
+         writeln(" CAMINHAO 1":C1),
+         writeln("\n CAMINHAO 2":C2),
+         writeln("\n CAMINHAO 3":C3),
+         writeln("\n CAMINHAO 4":C4),
+         writeln("\n CAMINHAO 5":C5),
+	 statistics(cputime, T1),     
+       	 Delta_tempo is T1 - T0,
+      	 write("\n O tempo para a conclusao foi de":Delta_tempo),
+      	 write(" segundos.\n\n\n"),
+         writeln("---------------------------------------------------"),
+	 true.     
+	     
+	 caminhoes([(COR1, MOTORISTA1, DESTINO1, CARGA1, PLACA1, KM1),
          (COR2, MOTORISTA2, DESTINO2, CARGA2, PLACA2, KM2),
          (COR3, MOTORISTA3, DESTINO3, CARGA3, PLACA3, KM3),
          (COR4, MOTORISTA4, DESTINO4, CARGA4, PLACA4, KM4),
          (COR5, MOTORISTA5, DESTINO5, CARGA5, PLACA5, KM5)]):-
  
- 	%%O número 1 fala que Jorge é o motorista do caminhão de placa DDD-4444.
+	%%O número 1 fala que Jorge é o motorista do caminhão de placa DDD-4444.
 	
 	(
 	(MOTORISTA1=limao,PLACA1="DDD-4444");
@@ -284,9 +294,9 @@ caminhoes([(COR1, MOTORISTA1, DESTINO1, CARGA1, PLACA1, KM1),
 
 	%%unificando: MOTORISTA
  
-	motorista(MOTORISTA1), motorista(MOTORISTA2), motorista(MOTORISTA3),
-	motorista(MOTORISTA4), motorista(MOTORISTA5), 
-	alldifferent([MOTORISTA1, MOTORISTA2, MOTORISTA3, MOTORISTA4, MOTORISTA5]),
+        motorista(MOTORISTA1), motorista(MOTORISTA2), motorista(MOTORISTA3),
+        motorista(MOTORISTA4), motorista(MOTORISTA5), 
+        alldifferent([MOTORISTA1, MOTORISTA2, MOTORISTA3, MOTORISTA4, MOTORISTA5]),
  
 	%%unificando: COR
  
@@ -316,7 +326,7 @@ caminhoes([(COR1, MOTORISTA1, DESTINO1, CARGA1, PLACA1, KM1),
 	km(KM1), km(KM2), km(KM3), km(KM4), km(KM5), 
 	alldifferent([KM1, KM2, KM3, KM4, KM5]),
  
-	true.
+true.
  
-	main:-
+main:-
 	start.
