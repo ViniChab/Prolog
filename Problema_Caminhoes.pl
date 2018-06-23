@@ -11,7 +11,32 @@
 %%Jorge, que eu substituí por : limao
 %%Pedro, que eu substituí por : carol
 %%Stênio, que eu substituí por : leo       
+
+%%NOMES ALTERADOS COM PEDIDO DO PROFESSOR
                       
+%%Um exemplo de entrada/saída do programa é:
+
+%%	?- main.
+%%	----------------------Welcome----------------------
+%%	Powered by: Vinicius S. Chab
+
+
+%% 	CAMINHAO 1:(verde,joao,mato_grosso,enxofre,AAA-1111,150)
+
+%% 	CAMINHAO 2:(vermelho,carol,parana,trigo,BBB-2222,100)
+
+%% 	CAMINHAO 3:(amarelo,limao,bahia,soda_caustica,DDD-4444,250)
+
+%% 	CAMINHAO 4:(azul,leo,minas_gerais,adubo,CCC-3333,200)
+
+%% 	CAMINHAO 5:(branco,vinicius,amazonas,carvao,EEE-5555,50)
+
+%% 	O tempo para a conclusao foi de:0.015625 segundos.
+
+
+%%	---------------------------------------------------
+%%	true 
+
 %%Adicionando biblioteca
 
 :- set_prolog_flag(verbose,silent).
@@ -60,6 +85,10 @@ alldifferent([H|T]):- not(member(H,T)),
                       alldifferent(T).
  
 start:-  
+		 %%Aqui, preparo tudo para que todas as informações sejam 
+		 %%printadas de forma legível. Isso inclui o tempo de 
+		 %%execução, bem como a resposta para o problema.
+		 
 	 statistics(cputime, T0),
 	 writeln("----------------------Welcome----------------------"),
 	 writeln("Powered by: Vinicius S. Chab\n\n"),
@@ -73,10 +102,11 @@ start:-
        	 Delta_tempo is T1 - T0,
       	 write("\n O tempo para a conclusao foi de":Delta_tempo),
       	 write(" segundos.\n\n\n"),
-         writeln("---------------------------------------------------"),
-	 true.     
+		 writeln("---------------------------------------------------"),
+	     true.     
 	     
-	 caminhoes([(COR1, MOTORISTA1, DESTINO1, CARGA1, PLACA1, KM1),
+	     %%Definindo...
+\	 caminhoes([(COR1, MOTORISTA1, DESTINO1, CARGA1, PLACA1, KM1),
          (COR2, MOTORISTA2, DESTINO2, CARGA2, PLACA2, KM2),
          (COR3, MOTORISTA3, DESTINO3, CARGA3, PLACA3, KM3),
          (COR4, MOTORISTA4, DESTINO4, CARGA4, PLACA4, KM4),
@@ -112,7 +142,8 @@ start:-
 	%%do caminhão que vai para o Amazonas.
 	
 	(
-	(COR1=vermelho,(DESTINO2=amazonas;DESTINO3=amazonas;DESTINO4=amazonas;DESTINO5=amazonas));
+	(COR1=vermelho,
+	(DESTINO2=amazonas;DESTINO3=amazonas;DESTINO4=amazonas;DESTINO5=amazonas));
 	(COR2=vermelho,(DESTINO3=amazonas;DESTINO4=amazonas;DESTINO5=amazonas));
 	(COR3=vermelho,(DESTINO4=amazonas;DESTINO5=amazonas));
 	(COR4=vermelho,DESTINO5=amazonas)
@@ -294,9 +325,9 @@ start:-
 
 	%%unificando: MOTORISTA
  
-        motorista(MOTORISTA1), motorista(MOTORISTA2), motorista(MOTORISTA3),
-        motorista(MOTORISTA4), motorista(MOTORISTA5), 
-        alldifferent([MOTORISTA1, MOTORISTA2, MOTORISTA3, MOTORISTA4, MOTORISTA5]),
+    motorista(MOTORISTA1), motorista(MOTORISTA2), motorista(MOTORISTA3),
+    motorista(MOTORISTA4), motorista(MOTORISTA5), 
+    alldifferent([MOTORISTA1, MOTORISTA2, MOTORISTA3, MOTORISTA4, MOTORISTA5]),
  
 	%%unificando: COR
  
@@ -326,7 +357,9 @@ start:-
 	km(KM1), km(KM2), km(KM3), km(KM4), km(KM5), 
 	alldifferent([KM1, KM2, KM3, KM4, KM5]),
  
-true.
+	true.
  
 main:-
 	start.
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%FIM
