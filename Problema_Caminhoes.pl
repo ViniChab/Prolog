@@ -106,7 +106,7 @@ start:-
 	     true.     
 	     
 	     %%Definindo...
-\	 caminhoes([(COR1, MOTORISTA1, DESTINO1, CARGA1, PLACA1, KM1),
+	 caminhoes([(COR1, MOTORISTA1, DESTINO1, CARGA1, PLACA1, KM1),
          (COR2, MOTORISTA2, DESTINO2, CARGA2, PLACA2, KM2),
          (COR3, MOTORISTA3, DESTINO3, CARGA3, PLACA3, KM3),
          (COR4, MOTORISTA4, DESTINO4, CARGA4, PLACA4, KM4),
@@ -325,9 +325,9 @@ start:-
 
 	%%unificando: MOTORISTA
  
-    motorista(MOTORISTA1), motorista(MOTORISTA2), motorista(MOTORISTA3),
-    motorista(MOTORISTA4), motorista(MOTORISTA5), 
-    alldifferent([MOTORISTA1, MOTORISTA2, MOTORISTA3, MOTORISTA4, MOTORISTA5]),
+        motorista(MOTORISTA1), motorista(MOTORISTA2), motorista(MOTORISTA3),
+        motorista(MOTORISTA4), motorista(MOTORISTA5), 
+        alldifferent([MOTORISTA1, MOTORISTA2, MOTORISTA3, MOTORISTA4, MOTORISTA5]),
  
 	%%unificando: COR
  
