@@ -1,2 +1,2 @@
 # Prolog
-Prolog codes
+Prolog code
